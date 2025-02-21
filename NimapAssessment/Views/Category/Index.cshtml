@@ -1,0 +1,32 @@
+﻿@model IEnumerable<NimapAssessment.Models.Category>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 align="center">Index</h1>
+<hr />
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(Model => Model.CategoryId)</th>
+            <th>@Html.DisplayNameFor(Model => Model.CategoryName)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(Modelitem => item.CategoryId)</td>
+                <td>@Html.DisplayFor(Modelitem => item.CategoryName)</td>
+                <td>@Html.ActionLink("Edit","Edit",new {id=item.CategoryId},new {@class="btn btn-info"}) |
+                @Html.ActionLink("Details","Details",new {id=item.CategoryId},new {@class="btn btn-info"})
+                @Html.ActionLink("Delete","Delete",new {id=item.CategoryId},new {@class="btn btn-danger"})</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Add Category</a>
+</p>
